@@ -55,5 +55,64 @@
     </div>
 </div>
 
+<div class="bs-example">
+    <form th:action="@{/searchHotspots}" method="post" class="form-horizontal">
+        <div class="form-group">
+            <label for="lat" class="control-label col-xs-2">Latitude</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" id="lat" name="lat" value="-37.818496"
+                       placeholder="Latitude" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lon" class="control-label col-xs-2">Latitude</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" id="lon" name="lon" value="144.953240"
+                       placeholder="Longitude" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="radius" class="control-label col-xs-2">Latitude</label>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" id="radius" name="radius" value="100"
+                       placeholder="Radius" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Find Telstra WIFI Hotspots</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="bs-example" th:if="${hotspots}">
+    <div class="alert alert-info fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <strong>Success!</strong> Found <b th:text="${hotspotscount}"></b> Telstra WIFI Hotspots
+    </div>
+    <h3>WIFI Hotspots</h3>
+    <div class="col-xs-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Address</th>
+                <th>State</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="hotspot : ${hotspots}" class="danger">
+                <td th:text="${hotspot.address}"></td>
+                <td th:text="${hotspot.state}"></td>
+                <td th:text="${hotspot.latitude}"></td>
+                <td th:text="${hotspot.longitude}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 </body>
 </html>

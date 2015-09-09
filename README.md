@@ -3,6 +3,8 @@
 The following project exposes the Telstra WIFI API using a a spring boot application that has a RESTful method to invoke 
 the Telstra WIFI API.
 
+![alt tag](https://dl.dropboxusercontent.com/u/15829935/bluemix-docs/telstraapi-bluemix/images/telstra-wifi.png)
+
 manifest.yml
 
 ```
